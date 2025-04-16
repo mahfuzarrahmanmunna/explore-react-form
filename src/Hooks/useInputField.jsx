@@ -1,11 +1,15 @@
-import React from 'react';
+import { useState } from 'react';
 
-const useInputField = () => {
-    return (
-        <div>
+const useInputField = (defaultValue) => {
+    const [fieldValue, setFieldValue] = useState(defaultValue)
 
-        </div>
-    );
+    const handleFieldChange = (e) => {
+        setFieldValue(e.target.value)
+    }
+    return [
+        fieldValue,
+        handleFieldChange
+    ]
 };
 
 export default useInputField;
